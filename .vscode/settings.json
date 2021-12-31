@@ -64,6 +64,7 @@
         "stdio.h": "c",
         "deque": "cpp",
         "iostream": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "stack": "cpp"
     }
 }

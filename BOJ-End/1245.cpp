@@ -10,9 +10,10 @@
 #include <vector>
 using namespace std;
 /*
-한점에 대해 같으면? 큐에 넣고, 다확인하는 과정을 거침.
-          크면? x
+한점에 대해 같으면? 큐에 넣고, 다확인하는 과정을 거침. bfs
+          크면? x -> 탈락
           작으면? ok
+          같으면? -> push 해서 vfs xkator
           점에대해 visited가 있어야한다.
           한점을 방문하면 이
           1. 모든점에대해 visited일 경우에만 검사.
@@ -34,19 +35,12 @@ int main() {
       scanf("%d", &height[i][j]);
     }
   }
-  // for (int i = 0; i < n + 2; i++) {
-  //   for (int j = 0; j < m + 2; j++) {
-  //     printf("%d ", height[i][j]);
-  //   }
-  //   printf("\n");
-  // }
   queue<pair<int, int>> bfs;
   // printf("asd");
   int num_of_mountain = 0;
   bool mt_flag = true;
   for (int i = 1; i < n + 1; i++) {
     for (int j = 1; j < m + 1; j++) {
-      // printf("제발 되어줘");
       if (visited[i][j]) {
         mt_flag = true;
         continue;
@@ -55,9 +49,7 @@ int main() {
       while (!bfs.empty()) {
         int cur_x = bfs.front().first;
         int cur_y = bfs.front().second;
-        //printf("cur_x:%d y:%d value %d\n",cur_x,cur_y,height[cur_x][cur_y]);
         int cur_height = height[cur_x][cur_y];
-        // front에 대해 검사한다.
         bfs.pop();
         for (int k = cur_x - 1; k <= cur_x + 1; k++) {
           for (int l = cur_y - 1; l <= cur_y + 1; l++) {
@@ -69,14 +61,11 @@ int main() {
               }
             }
             if (height[k][l] > cur_height) {
-              //printf("검사 %d cur %d \n",height[k][l],cur_height);
               mt_flag = false;
             }
           }
         }
       }
-      // bfs탐색이 끝남
-      //printf("flag: %d\n", mt_flag);
       if (mt_flag == true) num_of_mountain += 1;
       mt_flag = true;
     }

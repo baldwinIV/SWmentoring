@@ -10,6 +10,7 @@
 #include <stack>
 #include <vector>
 
+
 using namespace std;
 
 void printwall(vector<double> &wall) {

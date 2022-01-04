@@ -65,6 +65,11 @@
         "deque": "cpp",
         "iostream": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "__functional_03": "cpp",
+        "map": "cpp",
+        "__tree": "cpp",
+        "regex": "cpp",
+        "climits": "cpp"
     }
 }
